@@ -1,13 +1,27 @@
 let average = $(".averageNumber").html();
-let gradeInput = $(".gradeInput").val();
 let gradeString = $(".gradeString").html();
-let averageArr = ();
-function moveNumber(gradeInput){
-  toString(gradeInput);
-  var gradeStringVal = "<span> " + gradeInput + " </span>";
+let averageArr = [];
+let sum = 0;
+function moveNumber() {
+  let gradeInput = $(".gradeInput").val();
+  console.log(gradeInput);
+  var gradeStringVal = "<span> " + gradeInput + "</span>";
   $(".gradeString").append(gradeStringVal);
-    averageArr.push(gradeInput);
+  averageArr.push(gradeInput);
 }
-$(".btnGrade").on("click", function(){
+function averageNumber(average){
+  let firstGrade = averageArr[0];
+  $(".averageNumber").html() = firstGrade += sum;
+  for (i = 0; i < averageArr.length; i++) {
+    if (i > 0){
+      averageArr[i] += sum;
+
+      i++;
+    }
+  }
+};
+$(".btnGrade").on("click", function() {
   moveNumber();
+  averageNumber();
+  average = sum / averageArr.length;
 });
