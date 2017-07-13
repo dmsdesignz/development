@@ -1,0 +1,31 @@
+row{
+  width:100%;
+  margin:auto;
+}
+.text-center{
+  text-align: -webkit-center;
+  text-align: center;
+}
+.jumbotron{
+  padding:30px;
+}
+.gradeInput{
+  width:100px;
+  display:block;
+}
+p.allNum{
+  height:60px;
+}
+.allNumbers{
+      text-align: -webkit-center;
+  width:100%;
+}
+.grade{
+  width:200px;
+  display:block;
+}
+div.average{
+  height:100px;
+  margin-top:2em;
+  width:100px;
+}
