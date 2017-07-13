@@ -9,12 +9,12 @@ function moveNumber() {
   $(".gradeString").append(gradeStringVal);
   averageArr.push(gradeInput);
 }
-function averageNumber(average){
+function averageNumber(){
   let firstGrade = averageArr[0];
-  $(".averageNumber").html() = firstGrade += sum;
+  average = firstGrade += sum;
   for (i = 0; i < averageArr.length; i++) {
     if (i > 0){
-      averageArr[i] += sum;
+      sum += averageArr[i];
 
       i++;
     }
@@ -22,6 +22,6 @@ function averageNumber(average){
 };
 $(".btnGrade").on("click", function() {
   moveNumber();
-  averageNumber();
+  averageNumber(sum);
   average = sum / averageArr.length;
 });
