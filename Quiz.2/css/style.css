@@ -1,0 +1,16 @@
+body, .jumbotron{
+  height:100%;
+}
+button{
+  width:32.9%;
+  height:50px;
+  font-size: 1.2em;
+}
+.quiz button{
+  width:100%;
+  border-radius:10px;
+  margin:5px 0;
+}
+.moreA1, .moreA2, .moreA3{
+  width:100px;
+}
