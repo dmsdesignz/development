@@ -171,19 +171,20 @@ function more(){
           <p>Answers, please click the radio button if correct: </p>
           <div class="answer correct col-xs-4">
             <p><input class="moreA1" type="text"></p>
-            <p><input type="radio" class="newR1"></p>
           </div>
           <div class="answer correct col-xs-4">
             <p><input class="moreA2" type="text"></p>
-            <p><input type="radio" class="newR2"></p>
           </div>
           <div class="answer correct col-xs-4">
             <p><input class="moreA3" type="text"></p>
-            <p><input type="radio" class="newR3"></p>
+
           </div>
         </span>
+        <p><input type="radio" class="newR1 form-check-input"></p>
+        <p><input type="radio" class="newR2 form-check-input"></p>
+        <p><input type="radio" class="newR3 form-check-input"></p>
       </p>
-      <button class="btn btn-block" onclick="newQBtn()">Submit</button>
+      <button class="btn-info btn-block" onclick="newQBtn()">Submit</button>
     </div>`).appendTo($(".more")).slideDown('slow');
 
 }
@@ -198,12 +199,13 @@ function newQBtn(){
     let newR1 = $(".newR1").html();
     let newR2 = $(".newR2").html();
     let newR3 = $(".newR3").html();
-
+    let newRArr = [newR1,newR2,newR3];
+    let newAArr = [moreA1,moreA2,moreA3]
   //for (i = 0; i <= newQArr.length; i++) {
     extraQ = new Question(
       newQ,
       [moreA1,moreA2,moreA3],
-      [newR1,newR2,newR3]);
+      newRArr);
     newQArr.push(extraQ);
     console.log(newQArr);
     newQ = $(".newQ").val('');
@@ -213,7 +215,13 @@ function newQBtn(){
     newR1 =  $(".newR1").html('');
     newR2 =  $(".newR2").html('');
     newR3 =  $(".newR3").html('');
+    $(".more").append(`
+      <p>${newQ}</p>`);
+      for (i = 0; i < newRArr; i++){
+        $(".more").append(`
+          <button onclick="ifCorrect()" data="${newRArr[i]}"  class="btn-primary">${newAArr[i]}</button>`);
 
+      }
   //}
 }
 
@@ -225,5 +233,5 @@ function ifEmpty(x){
   }
 }
 if(!localStorage.getItem('grade')) {
-    localStorage.setItem('grade', $(".correct").html());
+    localStorage.setItem('grade', $("#correct").html());
 }

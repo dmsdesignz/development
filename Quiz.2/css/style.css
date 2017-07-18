@@ -18,6 +18,10 @@ button{
 .rA1, .rA2, .rA3{
   margin-left: 32%!important;
 }
-.correct{
-  margin-bottom: -1em!important;
+
+
+input{
+  width: 33%;
+  margin: 20px 0;
+  float: left;
 }
