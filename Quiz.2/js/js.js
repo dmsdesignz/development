@@ -158,10 +158,59 @@ $(".java").on("click",function(){
 
 });
 function more(){
-  $(".more").append(`<div class="well" style="margin-top:2em;"><p><span class="block-inline"><p>Question: </p><input data="moreQ" class="btn-block"></span></p><p><span class="block-inline"><p>Answers: </p><input class="moreA1"><input class="moreA2"><input class="moreA3"></span></p><p><span><p class="correct">Correct: </p><input type="radio" class="rA1" ><input type="radio" class="rA2"><input type="radio" class="rA3" ></span></p></div>`)
-  let more1 = new Question();
+  $(".more").append(`
+    <div class="well" style="margin-top:2em;">
+      <p>
+        <span class="block-inline">
+          <p>Question: </p>
+          <input data="moreQ" class="btn-block newQ">
+        </span>
+      </p>
+      <p>
+        <span class="block-inline">
+          <p>Answers, please click the radio button if correct: </p>
+          <div class="answer correct col-xs-4">
+            <p><input class="moreA1"></p>
+            <p><input type="radio" class="newR1"></p>
+          </div>
+          <div class="answer correct col-xs-4">
+            <p><input class="moreA2"></p>
+            <p><input type="radio" class="newR2"></p>
+          </div>
+          <div class="answer correct col-xs-4">
+            <p><input class="moreA3"></p>
+            <p><input type="radio" class="newR3"></p>
+          </div>
+        </span>
+      </p>
+      <button class="btn btn-block" onclick="newQBtn()">Submit</button>
+    </div>`)
+
 }
 
+let newQ = $(".newQ").html();
+let moreA1 = $(".moreA1").html();
+let moreA2 = $(".moreA2").html();
+let moreA3 = $(".moreA3").html();
+let newR1 = $(".newR1").html();
+let newR2 = $(".newR2").html();
+let newR3 = $(".newR3").html();
+let newQArr = [];
+let extmore
+function newQBtn(){
+  extra = new Question(
+    ifEmpty(newQ),
+    ifEmpty([moreA1,moreA2,moreA3]),
+    ifEmpty([newR1,newR2,newR3]));
+}
+function ifEmpty(x){
+  if ( x == !null){
+    newQArr.push(extra);
+    console.log(extra);
+  } else {
+    alert("Plesae fill in all fields");
+  }
+}
 if(!localStorage.getItem('grade')) {
     localStorage.setItem('grade', $(".correct").html());
 }
