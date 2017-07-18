@@ -1,3 +1,5 @@
+
+localStorage.getItem('grade');
 let grade = 0;
 
 
@@ -103,7 +105,7 @@ function quizLoop1(){
        loopA = cssQuiz[i].answer[x];
          $(".quiz").append(`<button onclick="ifCorrect()" data="${loopA}"  class="btn-primary">${loopMC}</button>`);
        }
-       $(".quiz").append(`<hr>`)
+       $(".quiz").append(`<hr>`);
     }
  }
 
@@ -124,7 +126,7 @@ function quizLoop2(){
        loopA = htmlQuiz[i].answer[x];
          $(".quiz").append(`<button onclick="ifCorrect()" data="${loopA}"  class="btn-primary">${loopMC}</button>`);
        }
-       $(".quiz").append(`<hr>`)
+       $(".quiz").append(`<hr>`);
     }
  }
 
@@ -145,7 +147,7 @@ function quizLoop3(){
        loopA = javaQuiz[i].answer[x];
          $(".quiz").append(`<button onclick="ifCorrect()" data="${loopA}"  class="btn-primary">${loopMC}</button>`);
        }
-       $(".quiz").append(`<hr>`)
+       $(".quiz").append(`<hr>`);
     }
  }
 
@@ -153,8 +155,13 @@ $(".java").on("click",function(){
   $(".java").css("background-color", "rgba(0,0,0,.1)");
   $(".css,.html").css("background-color", "rgba(255,0,0,.7)");
   quizLoop3();
+
 });
 function more(){
-  $(".more").html(`<p><span class="block-inline">Question: <input data="moreQ"></span></p><p><span class="block-inline">Answers: <input class="moreA1"><input class="moreA2"><input class="moreA3"></span></p><p><span>Correct: <input type="radio" class="rA1" ><input type="radio" class="rA2"><input type="radio" class="rA3" ></span></p>`)
+  $(".more").append(`<div class="well" style="margin-top:2em;"><p><span class="block-inline"><p>Question: </p><input data="moreQ" class="btn-block"></span></p><p><span class="block-inline"><p>Answers: </p><input class="moreA1"><input class="moreA2"><input class="moreA3"></span></p><p><span><p class="correct">Correct: </p><input type="radio" class="rA1" ><input type="radio" class="rA2"><input type="radio" class="rA3" ></span></p></div>`)
   let more1 = new Question();
+}
+
+if(!localStorage.getItem('grade')) {
+    localStorage.setItem('grade', $(".correct").html());
 }
