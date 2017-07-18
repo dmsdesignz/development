@@ -158,7 +158,7 @@ $(".java").on("click",function(){
 
 });
 function more(){
-  $(".more").append(`
+  $(`
     <div class="well" style="margin-top:2em;">
       <p>
         <span class="block-inline">
@@ -170,42 +170,49 @@ function more(){
         <span class="block-inline">
           <p>Answers, please click the radio button if correct: </p>
           <div class="answer correct col-xs-4">
-            <p><input class="moreA1"></p>
+            <p><input class="moreA1" type="text"></p>
             <p><input type="radio" class="newR1"></p>
           </div>
           <div class="answer correct col-xs-4">
-            <p><input class="moreA2"></p>
+            <p><input class="moreA2" type="text"></p>
             <p><input type="radio" class="newR2"></p>
           </div>
           <div class="answer correct col-xs-4">
-            <p><input class="moreA3"></p>
+            <p><input class="moreA3" type="text"></p>
             <p><input type="radio" class="newR3"></p>
           </div>
         </span>
       </p>
       <button class="btn btn-block" onclick="newQBtn()">Submit</button>
-    </div>`)
+    </div>`).appendTo($(".more")).slideDown('slow');
 
 }
 
 function newQBtn(){
     let newQArr = [];
-
+    let extraQ;
     let newQ = $(".newQ").val();
-    let moreA1 = $(".moreA1").html();
-    let moreA2 = $(".moreA2").html();
-    let moreA3 = $(".moreA3").html();
+    let moreA1 = $(".moreA1").val();
+    let moreA2 = $(".moreA2").val();
+    let moreA3 = $(".moreA3").val();
     let newR1 = $(".newR1").html();
     let newR2 = $(".newR2").html();
     let newR3 = $(".newR3").html();
 
-  /*for (i = 0; i < newQArr.length; i++) {*/
-    let extraQ = new Question(
+  //for (i = 0; i <= newQArr.length; i++) {
+    extraQ = new Question(
       newQ,
       [moreA1,moreA2,moreA3],
       [newR1,newR2,newR3]);
-      newQArr.push(extraQ);
-      console.log(newQArr);
+    newQArr.push(extraQ);
+    console.log(newQArr);
+    newQ = $(".newQ").val('');
+    moreA1 = $(".moreA1").val('');
+    moreA2 = $(".moreA2").val('');
+    moreA3 = $(".moreA3").val('');
+    newR1 =  $(".newR1").html('');
+    newR2 =  $(".newR2").html('');
+    newR3 =  $(".newR3").html('');
 
   //}
 }
