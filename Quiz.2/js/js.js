@@ -188,25 +188,31 @@ function more(){
 
 }
 
-let newQ = $(".newQ").html();
-let moreA1 = $(".moreA1").html();
-let moreA2 = $(".moreA2").html();
-let moreA3 = $(".moreA3").html();
-let newR1 = $(".newR1").html();
-let newR2 = $(".newR2").html();
-let newR3 = $(".newR3").html();
-let newQArr = [];
-let extmore
 function newQBtn(){
-  extra = new Question(
-    ifEmpty(newQ),
-    ifEmpty([moreA1,moreA2,moreA3]),
-    ifEmpty([newR1,newR2,newR3]));
+    let newQArr = [];
+
+    let newQ = $(".newQ").val();
+    let moreA1 = $(".moreA1").html();
+    let moreA2 = $(".moreA2").html();
+    let moreA3 = $(".moreA3").html();
+    let newR1 = $(".newR1").html();
+    let newR2 = $(".newR2").html();
+    let newR3 = $(".newR3").html();
+
+  /*for (i = 0; i < newQArr.length; i++) {*/
+    let extraQ = new Question(
+      newQ,
+      [moreA1,moreA2,moreA3],
+      [newR1,newR2,newR3]);
+      newQArr.push(extraQ);
+      console.log(newQArr);
+
+  //}
 }
+
 function ifEmpty(x){
   if ( x == !null){
-    newQArr.push(extra);
-    console.log(extra);
+
   } else {
     alert("Plesae fill in all fields");
   }
